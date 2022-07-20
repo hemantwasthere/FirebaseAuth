@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import { ToastContainer } from 'react-toastify'
+import HomePage from '../components/HomePage'
 
 export default function Home() {
+  
   return (
     <div>
       <Head>
@@ -9,7 +12,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-    
+      <HomePage/>
+      <ToastContainer/>
 
     </div>
   )
