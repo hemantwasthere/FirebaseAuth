@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { ToastContainer } from 'react-toastify'
 import HomePage from '../components/HomePage'
 
 export default function Home() {
@@ -13,7 +12,6 @@ export default function Home() {
       </Head>
 
       <HomePage/>
-      <ToastContainer/>
 
     </div>
   )

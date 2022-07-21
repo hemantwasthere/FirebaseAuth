@@ -10,7 +10,7 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const router = useRouter()
-    const { logIn } = UserAuth()
+    const { logIn, forgotPassword } = UserAuth()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -28,7 +28,6 @@ const Login = () => {
                 darkMode: true,
             });
         } catch (error) {
-            console.log(error)
             toast.error(error.message, {
                 position: "top-right",
                 autoClose: 2000,
@@ -40,6 +39,20 @@ const Login = () => {
                 darkMode: true,
             });
         }
+    }
+
+    const handleForgotPassword = () => {
+        forgotPassword(email)
+        toast.success('Password reset link has been sent, Please check you spam', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            darkMode: true,
+        });
     }
 
 
@@ -65,7 +78,7 @@ const Login = () => {
                                 <button className=' bg-red-600 py-3 my-6 rounded font-bold ' >Sign In</button>
 
                                 <div className='flex justify-between items-center text-sm text-gray-600 '>
-                                    <p className='cursor-pointer hover:underline '>Forgot Password?</p>
+                                    <p onClick={handleForgotPassword} className='cursor-pointer hover:underline '>Forgot Password?</p>
                                 </div>
 
                                 <p className='py-8'>

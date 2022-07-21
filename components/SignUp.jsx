@@ -4,10 +4,12 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import { doc, updateDoc } from 'firebase/firestore';
 
 
 const SignUp = () => {
 
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { signUp } = UserAuth()
@@ -16,7 +18,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signUp(email, password);
+      await signUp(name, email, password);
       router.push('/')
       toast.success('Your account has been successfully created 🥳', {
         position: "top-right",
@@ -56,6 +58,8 @@ const SignUp = () => {
               <h1 className='text-3xl font-bold  '>Sign Up</h1>
 
               <form onSubmit={handleSubmit} className='w-full flex flex-col py-4 ' >
+
+                <input onChange={(e) => setName(e.target.value)} className='p-3 my-2 bg-gray-700 rounded outline-red-600 ' type="text" placeholder='Name' />
 
                 <input onChange={(e) => setEmail(e.target.value)} className='p-3 my-2 bg-gray-700 rounded outline-red-600 ' type="email" placeholder='Email' autoComplete='email' />
 
