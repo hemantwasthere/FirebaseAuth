@@ -10,7 +10,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const { logOut, user } = UserAuth()
-    
+
     const LogOut = () => {
         toast.success('Logged Out', {
             position: "top-right",
@@ -24,6 +24,7 @@ const Navbar = () => {
         });
         return logOut()
     }
+    console.log(user)
 
     return (
         <div>
@@ -76,6 +77,10 @@ const Navbar = () => {
                                     </a>
                                 </div>
                             </div>
+
+                            <p className='absolute right-28 text-white text-[15px] '><span className='text-gray-400 text-xs'>signed in as</span>{" "} {user.name}</p>
+                            
+                            <p className='absolute right-28 text-white text-[15px] '><span className='text-gray-400 text-xs'>signed in as</span>{" "} {user.email}</p>
 
                             <div className=' absolute right-5 space-x-5 '>
                                 {user ? (
