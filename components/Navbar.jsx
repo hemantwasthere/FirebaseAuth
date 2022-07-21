@@ -77,8 +77,6 @@ const Navbar = () => {
                                     </a>
                                 </div>
                             </div>
-
-                            <p className='absolute right-28 text-white text-[15px] '><span className='text-gray-400 text-xs'>signed in as</span>{" "} {user.name}</p>
                             
                             <p className='absolute right-28 text-white text-[15px] '><span className='text-gray-400 text-xs'>signed in as</span>{" "} {user.email}</p>
 
