@@ -1,8 +1,15 @@
 import Head from 'next/head'
 import HomePage from '../components/HomePage'
+import { UserAuth } from '../context/AuthContext'
+import { useRouter } from 'next/router'
+import ProtectedRoute from '../components/ProtectedRoute'
 
 export default function Home() {
-  
+
+
+  const { user } = UserAuth()
+  const router = useRouter()
+
   return (
     <div>
       <Head>
@@ -11,7 +18,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage/>
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>
 
     </div>
   )
